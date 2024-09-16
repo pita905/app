@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FEE55E"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MainActivity2">
+
+
+
+
+    <EditText
+        android:id="@+id/edPasswordLogin"
+        android:layout_width="369dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="0dp"
+        android:hint="plaess anter Email"
+        android:inputType="textPassword"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:id="@+id/etEmailLogin"
+        android:layout_width="369dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:hint="plaess anter pasword"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp" />
+
+    <CheckBox
+        android:id="@+id/cShowpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show password" />
+
+    <Button
+        android:id="@+id/btLog"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="100dp"
+        android:text="Login" />
+
+    <Button
+        android:id="@+id/btreg"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:text="rejester" />
+
+    <Button
+        android:id="@+id/btBack"
+        android:layout_width="137dp"
+        android:layout_height="wrap_content"
+        android:text="back" />
+
+</LinearLayout>
