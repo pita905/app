@@ -3,13 +3,20 @@ package com.example.myapplication;
 public class UserDetails {
     private String userName;
     private String userPwd;
-    private String UserEmail;
+    private String userEmail;
     private String userPhone;
+
+    public UserDetails() {
+        this.userName = userName;
+        this.userPwd = userPwd;
+        this.userEmail = userEmail;
+        this.userPhone = userPhone;
+    }
 
     public UserDetails(String userName, String userPwd, String userEmail, String userPhone) {
         this.userName = userName;
         this.userPwd = userPwd;
-        this.UserEmail = userEmail;
+        this.userEmail = userEmail;
         this.userPhone = userPhone;
     }
 
@@ -30,11 +37,11 @@ public class UserDetails {
     }
 
     public String getUserEmail() {
-        return UserEmail;
+        return userEmail;
     }
 
     public void setUserEmail(String userEmail) {
-        UserEmail = userEmail;
+        userEmail = userEmail;
     }
 
     public String getUserPhone() {

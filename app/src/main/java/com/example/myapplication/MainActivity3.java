@@ -3,27 +3,26 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
+//import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.text.Editable;
+//import android.text.Editable;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
+//import android.widget.CheckBox;
+//import android.widget.CompoundButton;
 import android.widget.EditText;
 
 public class MainActivity3 extends AppCompatActivity {
     Button btretern;
     Button btReg;
-    CheckBox cShowpasword;
-    UserDetails user;
+    //CheckBox cShowpasword;
+    UserDetails user = new UserDetails();
     EditText etRegName;
     EditText etRegEmail;
     EditText etRegPassword;
     EditText etRegPassword2;
     EditText etRegPhone;
     HelperDB helperDB = new HelperDB(this);
-    SQLiteDatabase db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +46,7 @@ public class MainActivity3 extends AppCompatActivity {
 
                 String phonreg = etRegPhone.getText().toString();
 
-                if (IsValid(namereg,emailreg,pasreg,pas2,phonreg)) {
+                if (IsValid(emailreg,pasreg,pas2,phonreg)) {
 
                     user.setUserName(etRegName.getText().toString());
 
@@ -59,8 +58,9 @@ public class MainActivity3 extends AppCompatActivity {
 
                     user.setUserPhone(etRegPhone.getText().toString());
 
+                    helperDB.insertUser(user);
                 }
-                else{}
+              //  else{}
                 //notificaSHEN THET SOME THING IS ICORECT
             }
 
@@ -77,7 +77,7 @@ public class MainActivity3 extends AppCompatActivity {
         });
 
     }
-    public static boolean IsValid(String Name,String Email,String Password,String Password2,String Phone){
+    public static boolean IsValid(String Email,String Password,String Password2,String Phone){
         //if (Name is in table){return false}
 
         if (!Email.contains("@") && !Email.contains(".com")) return false;
