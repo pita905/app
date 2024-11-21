@@ -36,21 +36,36 @@ public class MainActivity3 extends AppCompatActivity {
         btReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               String namereg = etRegName.getText().toString();
-               user.setUserEmail(etRegName.getText().toString());
 
-               String emailreg = etRegEmail.getText().toString();
-               user.setUserEmail(etRegEmail.getText().toString());
+                String namereg = etRegName.getText().toString();
 
-               String pasreg = etRegPassword.getText().toString();
-               user.setUserPwd(etRegPassword.getText().toString());
+                String emailreg = etRegEmail.getText().toString();
 
-               String pas2 = etRegPassword2.getText().toString();
-               user.setUserPwd(etRegPassword2.getText().toString());
+                String pasreg = etRegPassword.getText().toString();
 
-               String phonreg = etRegPhone.getText().toString();
-               user.setUserPhone(etRegPhone.getText().toString());
+                String pas2 = etRegPassword2.getText().toString();
+
+                String phonreg = etRegPhone.getText().toString();
+
+                if (IsValid(namereg,emailreg,pasreg,pas2,phonreg)) {
+
+                    user.setUserName(etRegName.getText().toString());
+
+                    user.setUserEmail(etRegEmail.getText().toString());
+
+                    user.setUserPwd(etRegPassword.getText().toString());
+
+                    user.setUserPwd(etRegPassword2.getText().toString());
+
+                    user.setUserPhone(etRegPhone.getText().toString());
+
+                }
+                else{}
+                //notificaSHEN THET SOME THING IS ICORECT
             }
+
+
+
         });
         btretern = findViewById(R.id.btretern);
         btretern.setOnClickListener(new View.OnClickListener() {
@@ -62,4 +77,14 @@ public class MainActivity3 extends AppCompatActivity {
         });
 
     }
+    public static boolean IsValid(String Name,String Email,String Password,String Password2,String Phone){
+        //if (Name is in table){return false}
+
+        if (!Email.contains("@") && !Email.contains(".com")) return false;
+        if (!Password.equals(Password2)) return false;
+        if (!(Phone.charAt(0) ==0) && !(Phone.charAt(1) ==5)) return false;
+        return true;
+    }
+
+
 }
