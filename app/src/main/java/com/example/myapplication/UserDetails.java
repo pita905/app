@@ -1,54 +1,54 @@
 package com.example.myapplication;
 
 public class UserDetails {
-    private String userName;
-    private String userPwd;
-    private String userEmail;
-    private String userPhone;
+    private String USERS_NAME;
+    private String USERS_PWD;
+    private String USERS_EMAIL;
+    private String USER_PHONE;
 
     public UserDetails() {
-        this.userName = userName;
-        this.userPwd = userPwd;
-        this.userEmail = userEmail;
-        this.userPhone = userPhone;
+        this.USERS_NAME = USERS_NAME;
+        this.USERS_PWD = USERS_PWD;
+        this.USERS_EMAIL = USERS_EMAIL;
+        this.USER_PHONE = USER_PHONE;
     }
 
-    public UserDetails(String userName, String userPwd, String userEmail, String userPhone) {
-        this.userName = userName;
-        this.userPwd = userPwd;
-        this.userEmail = userEmail;
-        this.userPhone = userPhone;
+    public UserDetails(String USERS_NAME, String USERS_PWD, String USERS_EMAIL, String USER_PHONE) {
+        this.USERS_NAME = USERS_NAME;
+        this.USERS_PWD = USERS_PWD;
+        this.USERS_EMAIL = USERS_EMAIL;
+        this.USER_PHONE = USER_PHONE;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUSERS_NAME() {
+        return USERS_NAME;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUSERS_NAME(String USERS_NAME) {
+        this.USERS_NAME = USERS_NAME;
     }
 
-    public String getUserPwd() {
-        return userPwd;
+    public String getUSERS_PWD() {
+        return USERS_PWD;
     }
 
-    public void setUserPwd(String userPwd) {
-        this.userPwd = userPwd;
+    public void setUSERS_PWD(String USERS_PWD) {
+        this.USERS_PWD = USERS_PWD;
     }
 
-    public String getUserEmail() {
-        return userEmail;
+    public String getUSERS_EMAIL() {
+        return USERS_EMAIL;
     }
 
-    public void setUserEmail(String userEmail) {
-        userEmail = userEmail;
+    public void setUSERS_EMAIL(String USERS_EMAIL) {
+        USERS_EMAIL = USERS_EMAIL;
     }
 
-    public String getUserPhone() {
-        return userPhone;
+    public String getUSER_PHONE() {
+        return USER_PHONE;
     }
 
-    public void setUserPhone(String userPhone) {
-        this.userPhone = userPhone;
+    public void setUSER_PHONE(String USER_PHONE) {
+        this.USER_PHONE = USER_PHONE;
     }
 }

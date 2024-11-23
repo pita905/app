@@ -5,64 +5,63 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 public class HelperDB extends SQLiteOpenHelper {
     public static final String DB_FILE = "User.db";
-    public static final String USERS_TEBLE = "Users";
-    //public static final String ID = "ID";
-    public static final String USERS_NAME = "Users_Name";
-    public static final String USERS_PWD = "Users_Pwd";
-    public static final String USERS_EMAIL = "User_Email";
-    public static final String USER_PHONE = "User_Phone";
+    private static final int DATABASE_VERSION = 1;
 
+    public static final String TABLE_USERS = "Users";
+    //public static final String ID = "ID";
+    public static final String USERS_NAME = "Name";
+    public static final String USERS_PWD = "Pwd";
+    public static final String USERS_EMAIL = "Email";
+    public static final String USER_PHONE = "Phone";
+    private final Context context;
+
+
+
+    private static final String CREATE_TABLE_USERS = " CREATE TABLE "
+            + TABLE_USERS + "("
+            + USERS_NAME + " TEXT, "
+            + USERS_PWD + " TEXT, "
+            + USERS_EMAIL + " TEXT,"
+            + USER_PHONE + " TEXT"
+            + ")";
     public HelperDB(@Nullable Context context) {
 
-        super(context, DB_FILE, null, 1);
-
+        super(context, DB_FILE, null, DATABASE_VERSION);
+        this.context = context;
     }
 
-    @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(buildUserTable());
+        db.execSQL(CREATE_TABLE_USERS);
     }
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + USERS_TEBLE);
-    }
-
-    public String buildUserTable() {
-        String st = "CREATE TABLE IF NOT EXISTS" + USERS_TEBLE;
-        st += "(" + USERS_NAME + "TEXT,";
-     //   st += ID + "TEXT,";
-        st += USERS_PWD + "TEXT,";
-        st += USERS_EMAIL + "TEXT,";
-        st += USER_PHONE + "TEXT);";
-        return st;
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
+        onCreate(db);
     }
 
 
-
-    public boolean insertUser(UserDetails user) {
-        SQLiteDatabase db = this.getWritableDatabase();
+    public void insertUser(UserDetails user) {
         ContentValues values = new ContentValues();
-        values.put(USERS_NAME, user.getUserName());
-        values.put(USERS_PWD, user.getUserPwd());
-        values.put(USERS_EMAIL, user.getUserEmail());
-        values.put(USER_PHONE, user.getUserPhone());
-        long result = db.insert(USERS_TEBLE, null, values);
-        if (result == -1) return false;
-        else
-            return true;
+        values.put(HelperDB.USERS_NAME, user.getUSERS_NAME());
+        values.put(HelperDB.USERS_PWD, user.getUSERS_PWD());
+        values.put(HelperDB.USERS_EMAIL, user.getUSERS_EMAIL());
+        values.put(HelperDB.USER_PHONE, user.getUSER_PHONE());
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.insert(TABLE_USERS, null, values);
+        db.close();
     }
-public Cursor getAllData(){
-    SQLiteDatabase db = this.getWritableDatabase();
-    Cursor res = db.rawQuery("select * from "+USERS_TEBLE,null);
-    return res;
-}
 
-
+    public Cursor getAllData() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor res = db.rawQuery("select * from " + TABLE_USERS, null);
+        return res;
+    }
 
 }

@@ -10,24 +10,22 @@
     tools:context=".MainActivity2">
 
 
-
+    <EditText
+        android:id="@+id/etEmailLogin"
+        android:layout_width="369dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="0dp"
+        android:hint="plaess anter Email"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp" />
 
     <EditText
         android:id="@+id/edPasswordLogin"
         android:layout_width="369dp"
         android:layout_height="48dp"
-        android:layout_marginTop="0dp"
-        android:hint="plaess anter Email"
-        android:inputType="textPassword"
-        android:minHeight="48dp" />
-
-    <EditText
-        android:id="@+id/etEmailLogin"
-        android:layout_width="369dp"
-        android:layout_height="48dp"
         android:layout_marginTop="20dp"
         android:hint="plaess anter pasword"
-        android:inputType="textEmailAddress"
+        android:inputType="textVisiblePassword"
         android:minHeight="48dp" />
 
     <CheckBox
