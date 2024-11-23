@@ -3,7 +3,6 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-//import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 //import android.text.Editable;
@@ -30,7 +29,7 @@ public class MainActivity3 extends AppCompatActivity {
         setContentView(R.layout.activity_main3);
 
         HelperDB helperDB= new HelperDB(this);
-        SQLiteDatabase db;
+      //  SQLiteDatabase db;
 
         etRegName = findViewById(R.id.etRegName);
         etRegEmail = findViewById(R.id.etRegEmail);
@@ -43,22 +42,22 @@ public class MainActivity3 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String namereg = etRegName.getText().toString();
+                String namereg = etRegName.getText().toString().trim();
 
-                String emailreg = etRegEmail.getText().toString();
+                String emailreg = etRegEmail.getText().toString().trim();
 
-                String pasreg = etRegPassword.getText().toString();
+                String pasreg = etRegPassword.getText().toString().trim();
 
-                String pas2 = etRegPassword2.getText().toString();
+                String pas2 = etRegPassword2.getText().toString().trim();
 
-                String phonreg = etRegPhone.getText().toString();
+                String phonreg = etRegPhone.getText().toString().trim();
 
                 if (!IsValid(emailreg,pasreg,pas2,phonreg)) {
                     Intent intent = new Intent(MainActivity3.this, MainActivity3.class);
                     startActivity(intent);
 
                 }
-                UserDetails user = new UserDetails(namereg, pasreg, emailreg, phonreg);
+                UserDetails user = new UserDetails(pasreg,namereg, emailreg, phonreg);
                 helperDB.insertUser(user);
 
                 Intent intent = new Intent(MainActivity3.this, MainActivity2.class);

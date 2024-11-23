@@ -5,7 +5,6 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -15,20 +14,20 @@ public class HelperDB extends SQLiteOpenHelper {
 
     public static final String TABLE_USERS = "Users";
     //public static final String ID = "ID";
-    public static final String USERS_NAME = "Name";
-    public static final String USERS_PWD = "Pwd";
-    public static final String USERS_EMAIL = "Email";
-    public static final String USER_PHONE = "Phone";
+    public static final String User_Name = "Name";
+    public static final String User_Pwd = "Pwd";
+    public static final String User_Email = "Email";
+    public static final String User_Phone = "Phone";
     private final Context context;
 
 
 
     private static final String CREATE_TABLE_USERS = " CREATE TABLE "
             + TABLE_USERS + "("
-            + USERS_NAME + " TEXT, "
-            + USERS_PWD + " TEXT, "
-            + USERS_EMAIL + " TEXT,"
-            + USER_PHONE + " TEXT"
+            + User_Name + "TEXT, "
+            + User_Pwd + "TEXT, "
+            + User_Email + "TEXT, "
+            + User_Phone + "TEXT"
             + ")";
     public HelperDB(@Nullable Context context) {
 
@@ -48,10 +47,10 @@ public class HelperDB extends SQLiteOpenHelper {
 
     public void insertUser(UserDetails user) {
         ContentValues values = new ContentValues();
-        values.put(HelperDB.USERS_NAME, user.getUSERS_NAME());
-        values.put(HelperDB.USERS_PWD, user.getUSERS_PWD());
-        values.put(HelperDB.USERS_EMAIL, user.getUSERS_EMAIL());
-        values.put(HelperDB.USER_PHONE, user.getUSER_PHONE());
+        values.put(HelperDB.User_Name, user.getUSERS_NAME());
+        values.put(HelperDB.User_Pwd, user.getUSERS_PWD());
+        values.put(HelperDB.User_Email, user.getUSERS_EMAIL());
+        values.put(HelperDB.User_Phone, user.getUSER_PHONE());
 
         SQLiteDatabase db = this.getWritableDatabase();
         db.insert(TABLE_USERS, null, values);
