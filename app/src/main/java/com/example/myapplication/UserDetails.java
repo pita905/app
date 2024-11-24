@@ -5,7 +5,7 @@ public class UserDetails {
     private String USERS_PWD;
     private String USERS_EMAIL;
     private String USER_PHONE;
-
+//creating user object
     public UserDetails() {
         this.USERS_NAME = USERS_NAME;
         this.USERS_PWD = USERS_PWD;
@@ -19,7 +19,7 @@ public class UserDetails {
         this.USERS_EMAIL = USERS_EMAIL;
         this.USER_PHONE = USER_PHONE;
     }
-
+//getters and setters
     public String getUSERS_NAME() {
         return USERS_NAME;
     }

@@ -36,7 +36,7 @@ public class MainActivity3 extends AppCompatActivity {
         etRegPhone = findViewById(R.id.etRegPhone);
         etRegPassword = findViewById(R.id.etRegPassword);
         etRegPassword2 = findViewById(R.id.etRegPassword2);
-
+//register new user
         btReg = findViewById(R.id.btReg);
         btReg.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,7 +66,7 @@ public class MainActivity3 extends AppCompatActivity {
             }
 
 
-
+//go back to login page
         });
         btretern = findViewById(R.id.btretern);
         btretern.setOnClickListener(new View.OnClickListener() {
@@ -78,6 +78,7 @@ public class MainActivity3 extends AppCompatActivity {
         });
 
     }
+    //check if user data is valid
     public static boolean IsValid(String Email,String Password,String Password2,String Phone){
         //if (Name is in table){return false}
 

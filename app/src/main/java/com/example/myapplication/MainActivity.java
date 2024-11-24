@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
         startService(TTSService);
         ttsh.initTextToSpeech(this.getApplicationContext());
         countDownTimer = new CountDownTimer(10000, 1000) {
-
+//countdown timer
             @Override
             public void onTick(long millisUntilFinished) {
                 String stCountDown = millisUntilFinished / 1000 + "";
@@ -61,10 +61,11 @@ public class MainActivity extends AppCompatActivity {
                 textView.setText("FINISH!!");
             }
         };
-
+// go to login page with a timer
         btStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                ttsh.speak(textView.getText().toString());
                 if (countDownTimer != null) {
                     countDownTimer.cancel();
                 }

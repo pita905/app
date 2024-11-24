@@ -21,7 +21,7 @@ public class HelperDB extends SQLiteOpenHelper {
     private final Context context;
 
 
-
+//creating table
     private static final String CREATE_TABLE_USERS = " CREATE TABLE "
             + TABLE_USERS + "("
             + User_Name + "TEXT, "
@@ -38,13 +38,14 @@ public class HelperDB extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE_USERS);
     }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
         onCreate(db);
     }
 
-
+    //adding new user infomation in to database
     public void insertUser(UserDetails user) {
         ContentValues values = new ContentValues();
         values.put(HelperDB.User_Name, user.getUSERS_NAME());
@@ -56,7 +57,7 @@ public class HelperDB extends SQLiteOpenHelper {
         db.insert(TABLE_USERS, null, values);
         db.close();
     }
-
+//getting all data from database in to cursor res
     public Cursor getAllData() {
         SQLiteDatabase db = this.getWritableDatabase();
         Cursor res = db.rawQuery("select * from " + TABLE_USERS, null);
